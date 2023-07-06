@@ -1,4 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
-  font-family: sans-serif;
-  text-align: center;
+	background-color: #FCFCFC;
+	height: 100vh;
+	width: 100vw;
+}
+
+.add-button {
+	background: #1061C4;
 }
