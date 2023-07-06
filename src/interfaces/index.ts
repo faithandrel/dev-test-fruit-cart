@@ -14,3 +14,8 @@ export interface Nutritions {
   carbohydrates: number;
   protein: number;
 }
+
+export interface CartItem {
+  fruit: Fruit;
+  quantity: number;
+}
