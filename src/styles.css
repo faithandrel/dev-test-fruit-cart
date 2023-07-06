@@ -15,3 +15,7 @@
 .item {
 	height: 72px;
 }
+
+.empty, .cart {
+	min-height: 460px;
+}

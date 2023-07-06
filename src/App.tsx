@@ -1,8 +1,7 @@
 import './styles.css';
 
 import { useState, useCallback } from 'react';
-import { Form } from './components/form';
-import { Item } from './components/item';
+import { Form, Item, Empty } from './components'
 import { CartItem, Fruit } from './interfaces';
 
 const App = () => {
@@ -35,7 +34,7 @@ const App = () => {
       if (existingItem.quantity === 1) {
         return items.filter(item => item.fruit.id !== fruit.id);
       }
-      
+
       const decrementedItem = {
         ...existingItem,
         quantity: existingItem.quantity - 1
@@ -54,13 +53,21 @@ const App = () => {
           <div className="mt-3">
             <Form onAdd={onAdd} />
           </div>
-          <div className="mt-6">
-            {cartItems.map(cartItem => (
-              <div className="mb-1" key={cartItem.fruit.id}>
-                <Item item={cartItem} increment={onAdd} decrement={decrement} />
-              </div>
-            ))}
-          </div>
+          {cartItems.length ? (
+            <div className="mt-6 cart">
+              {cartItems.map(cartItem => (
+                <div className="mb-1" key={cartItem.fruit.id}>
+                  <Item
+                    item={cartItem}
+                    increment={onAdd}
+                    decrement={decrement}
+                  />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <Empty />
+          )}
         </div>
       </div>
     </div>
